@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Accounts - FIRE DRONE Template</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+    />
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/one.css') }}">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/two.css') }}">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/three.css') }}">
+    <!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+  </head>
+
+  <body id="reportsPage">
+    <div class="" id="home">
+      <nav class="navbar navbar-expand-xl">
+        <div class="container h-100">
+          <a class="navbar-brand" href="/index_page">
+            <h1 class="tm-site-title mb-0">FIRE DRONE</h1>
+          </a>
+          <button
+            class="navbar-toggler ml-auto mr-0"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars tm-nav-icon"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mx-auto h-100">
+                  <li class="nav-item">
+                      <a class="nav-link" href="/index_page">
+                          <i class="fas fa-tachometer-alt"></i>
+                          Dashboard
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" href="/account_details_page">
+                          <i class="far fa-user"></i>
+                          Account Details
+                          <span class="sr-only">(current)</span>
+                      </a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav">
+                {% if session.logged_in %}
+                 <!-- <img src="https://img.icons8.com/ios-glyphs/45/000000/person-male.png"><br> -->
+                 <p style="margin-top:10px;margin-right:30px;"><img src="https://img.icons8.com/ios-glyphs/45/000000/person-male.png" style="margin-left:70px;"><br>{{session.username}}</p>
+                <form action="/logout">
+                  <li class="nav-item">
+                      <button class="btn btn-primary btn-block text-uppercase" style="margin-top:20px;">
+                          Admin, <b>Logout</b>
+                      </button>
+                  </li>
+                  </form>
+                  {% else %}
+                  <button class="btn btn-primary btn-block text-uppercase" style="margin-top:10px;">
+                    Log-In
+                  </button>
+                  {% endif %}
+              </ul>
+        </div>
+      </div>
+      </nav>
+      <div class="container mt-5">
+        <!-- row -->
+        <div class="row tm-content-row">
+          <div class="tm-block-col tm-col-avatar">
+            <div class="tm-bg-primary-dark tm-block tm-block-avatar">
+              <h2 class="tm-block-title">Profile Photo</h2>
+              <div class="tm-avatar-container">
+                <form action="/" method="post", enctype="multipart/form-data">
+                <img
+                  src="{{'static/temp/{}'.format(user_info['filename'])}}"
+                  alt="Avatar"
+                  class="tm-avatar img-fluid mb-4"
+                />
+                <a href="#" class="tm-avatar-delete-link">
+                  <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                </a>
+              </div>
+              <!-- <input type="file" value=""required id="myfile" name="myfile" class="btn btn-primary btn-block text-uppercase"> -->
+            </div>
+          </div>
+          <div class="tm-block-col tm-col-account-settings">
+            <div class="tm-bg-primary-dark tm-block tm-block-settings">
+              <h2 class="tm-block-title">Account Info</h2>
+              <div class="tm-signup-form row">
+                <div class="form-group col-lg-6">
+                  <label for="name">Account Name</label>
+                  <div class="form-control validate"><p style="font-size:20px;margin-top:-5px;">{{user_info['name']}}</p></div>
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="email">Account Email</label>
+                  <div class="form-control validate"><p style="font-size:20px;margin-top:-5px;">{{user_info['username']}}</p></div>
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="email">Position</label>
+                  <div class="form-control validate"><p style="font-size:20px;margin-top:-5px;">{{user_info['title']}}</p></div>
+                </div>
+              </div>
+            </form>
+            <form action="/index_page">
+              <div class="col-12">
+                <button
+                  class="btn btn-primary btn-block text-uppercase"
+                  style="margin-top:15px;"
+                >
+                  Go Back to Dashboard
+                </button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="tm-footer row tm-mt-small" style="margin-top:170px;">
+        <div class="col-12 font-weight-light">
+          <p class="text-center text-white mb-0 px-4 small">
+            MADE BY ROSHAN & ANIKET !!!!!!
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="{{ url_for('static',filename='js/jquery-3.3.1.min.js') }}"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <!-- https://getbootstrap.com/ -->
+  </body>
+</html>

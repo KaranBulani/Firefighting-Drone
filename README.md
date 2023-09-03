@@ -9,3 +9,5 @@ To see the working of the project please checkout out the below playlist.
 </div>
 
 Link to the paper **https://ieeexplore.ieee.org/document/9121043**
+
+Link to the paper **https://eudl.eu/doi/10.4108/eai.16-5-2020.2303938**
